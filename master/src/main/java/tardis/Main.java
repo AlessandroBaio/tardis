@@ -52,6 +52,7 @@ import jbse.val.HistoryPoint;
 import jbse.val.SymbolFactory;
 
 import tardis.framework.TerminationManager;
+import tardis.implementation.CoveragePriorityQueueInputOutputBuffer;
 import tardis.implementation.CoverageSet;
 import tardis.implementation.EvosuiteResult;
 import tardis.implementation.JBSEResult;
@@ -87,7 +88,7 @@ public final class Main {
 		final CoverageSet coverageSet = new CoverageSet();
 		
 		//creates the communication queues between the performers
-		final QueueInputOutputBuffer<JBSEResult> pathConditionBuffer = new QueueInputOutputBuffer<>(); // = new CoveragePriorityQueueInputOutputBuffer(coverageSet);
+		final CoveragePriorityQueueInputOutputBuffer pathConditionBuffer =  new CoveragePriorityQueueInputOutputBuffer(coverageSet); // new QueueInputOutputBuffer<>();
 		final QueueInputOutputBuffer<EvosuiteResult> testCaseBuffer = new QueueInputOutputBuffer<>();
 		
 		//creates and wires together the components of the architecture
