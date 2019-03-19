@@ -3,6 +3,7 @@ package tardis.implementation;
 import static tardis.implementation.Util.shorten;
 import static tardis.implementation.Util.stringifyPathCondition;
 
+import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -94,7 +95,8 @@ public final class PerformerJBSE extends Performer<EvosuiteResult, JBSEResult> {
 		final TestCase tc = item.getTestCase();
 		System.out.println("[JBSE    ] Run test case " + tc.getClassName() + ", path condition " + stringifyPathCondition(shorten(tcFinalPC)));
 		final int coverage = this.coverageSet.size();
-		System.out.println("[JBSE    ] Current coverage: " + coverage + " branch" + (coverage == 1 ? "" : "es"));
+		LocalTime time = LocalTime.now();
+		System.out.println("[JBSE    ] Current coverage: " + coverage + " branch" + (coverage == 1 ? "" : "es") + "ORA-> " + time);//ora
 		final int tcFinalDepth = tcFinalState.getDepth();
 		
 		//reruns the test case, and generates all the modified path conditions
